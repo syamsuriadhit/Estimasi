@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+
+<div class="card p-4">
+<h3 class="text-center mb-3">📁 Upload Dataset</h3>
+<p class="text-muted text-center">Upload file Excel / CSV / JSON</p>
+
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" class="form-control mb-3" name="file" required>
+    <button class="btn btn-primary w-100">Upload Dataset</button>
+</form>
+
+</div>
+
+</div>
+</div>
+
+{% endblock %}

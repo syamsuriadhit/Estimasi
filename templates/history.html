@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card p-4">
+
+<h4>📂 Riwayat Estimasi</h4>
+
+<a href="/download" class="btn btn-warning btn-sm mb-3">⬇ Download CSV</a>
+
+<table class="table table-hover">
+<tr><th>Negara</th><th>Metode</th><th>Grafik</th></tr>
+
+{% for h in history %}
+<tr>
+<td>{{ h.country }}</td>
+<td>{{ h.method }}</td>
+<td><img src="/static/{{ h.graph }}" height="60"></td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/preview" class="btn btn-secondary">🔙 Kembali</a>
+</div>
+
+{% endblock %}

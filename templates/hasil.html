@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="card p-4 mb-3">
+<h4>{{ country }}</h4>
+<small>Metode: {{ method }}</small>
+
+<table class="table table-striped mt-3">
+<tr><th>Tahun</th><th>Estimasi</th></tr>
+
+{% for th, val in hasil %}
+<tr>
+<td>{{ th }}</td>
+<td class="fw-bold">{{ "%.0f"|format(val) }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/preview" class="btn btn-secondary">🔁 Estimasi Lagi</a>
+<a href="/history" class="btn btn-info ms-2">📂 Riwayat</a>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6">
+<div class="card p-4">
+<h5>📈 Grafik Prediksi</h5>
+<img src="/static/{{ graph }}" class="img-fluid mt-3">
+</div>
+</div>
+
+</div>
+
+{% endblock %}

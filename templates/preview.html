@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3>📄 Preview Dataset</h3>
+
+<div class="card p-3 mb-4">
+<div class="table-responsive">
+{{ preview|safe }}
+</div>
+</div>
+
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+
+<div class="card p-4">
+<h4>🔮 Estimasi Data</h4>
+
+<form method="POST" action="/estimasi">
+
+<div class="mb-2">
+<label class="form-label">Negara</label>
+<select class="form-control" name="country">
+{% for c in df["Country Name"] %}
+<option>{{ c }}</option>
+{% endfor %}
+</select>
+</div>
+
+<div class="mb-2">
+<label class="form-label">Metode Estimasi</label>
+<select class="form-control" name="method">
+<option value="linear">Linear Regression</option>
+<option value="polynomial">Polynomial Regression</option>
+<option value="random_forest">Random Forest</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Tahun Prediksi</label>
+<select class="form-control" name="future">
+<option value="1">1 Tahun</option>
+<option value="5" selected>5 Tahun</option>
+<option value="10">10 Tahun</option>
+</select>
+</div>
+
+<button class="btn btn-primary w-100">Hitung Estimasi</button>
+
+</form>
+</div>
+
+</div>
+</div>
+
+{% endblock %}
